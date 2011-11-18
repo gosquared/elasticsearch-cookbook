@@ -31,7 +31,9 @@ default[:elasticsearch][:max_mem] = "256m"
 
 # Number of open files for the elasticsearch user.
 # Recommended by the official guide. 655536
-default[:elasticsearch][:nofile] = 2**16
+# USE THE BOOTSTRAP COOKBOOK FOR THIS
+# https://github.com/gchef/bootstrap-cookbook
+# default[:elasticsearch][:nofile] = 2**16
 #
 # Upstart-related, wait this long between SIGTERM and SIGKILL
 default[:elasticsearch][:timeout] = 300
