@@ -6,7 +6,7 @@ description "elasticsearch v<%= node[:elasticsearch][:version] %>"
 kill timeout <%= node[:elasticsearch][:timeout] %> # wait this many seconds between SIGTERM and SIGKILL.
 
 start on runlevel [2345]
-stop on runlevel [016]
+stop on runlevel [!2345]
 
 respawn
 respawn limit 10 5
@@ -16,6 +16,4 @@ env DAEMON=/usr/local/bin/elasticsearch
 env ES_HOME=/usr/local/lib/elasticsearch
 env ES_CLASSPATH=$ES_HOME/*:$ES_HOME/sigar/*
 
-script
-  exec su -c ". $ES_CONFIGS/elasticsearch.in.sh && $DAEMON -f -Des.config=$ES_CONFIGS/elasticsearch.yml" elasticsearch
-end script
+exec su -c ". $ES_CONFIGS/elasticsearch.in.sh && $DAEMON -f -Des.config=$ES_CONFIGS/elasticsearch.yml" elasticsearch
