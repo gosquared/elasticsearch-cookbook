@@ -50,34 +50,18 @@ end
   end
 end
 
-template "#{node[:elasticsearch][:configs]}/elasticsearch.yml" do
-  cookbook "elasticsearch"
-  source "elasticsearch.yml.erb"
-  owner "root"
-  group "root"
-  mode "0644"
-  backup false
-  notifies :restart, resources(:service => "elasticsearch")
-end
-
-template "#{node[:elasticsearch][:configs]}/logging.yml" do
-  cookbook "elasticsearch"
-  source "elasticsearch.logging.yml.erb"
-  owner "root"
-  group "root"
-  mode "0644"
-  backup false
-  notifies :restart, resources(:service => "elasticsearch")
-end
-
-template "#{node[:elasticsearch][:configs]}/elasticsearch.in.sh" do
-  cookbook "elasticsearch"
-  source "elasticsearch.in.sh.erb"
-  owner "root"
-  group "root"
-  mode "0644"
-  backup false
-  notifies :restart, resources(:service => "elasticsearch")
+[
+  "elasticsearch.yml",
+  "logging.yml",
+  "elasticsearch.in.sh"
+].each do |elasticsearch_config|
+  template "#{node[:elasticsearch][:configs]}/#{elasticsearch_config}" do
+    owner "root"
+    group "root"
+    mode "0644"
+    backup false
+    notifies :restart, resources(:service => "elasticsearch"), :delayed
+  end
 end
 
 service "elasticsearch" do
