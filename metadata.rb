@@ -10,5 +10,6 @@ supports "ubuntu"
 supports "debian" # IN THEORY, NOT TESTED
 
 depends "build-essential"
+depends "java"
 
 # https://gist.github.com/766608
