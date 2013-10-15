@@ -1,7 +1,7 @@
-default[:elasticsearch][:version]    = "0.18.4"
-default[:elasticsearch][:checksum]   = "bc1909c7ca13f83cd27206cc773977e7cfb0512112a12f6cbade4d323c920de3"
+default[:elasticsearch][:version]    = "0.90.5"
+default[:elasticsearch][:checksum]   = "f14ff217039b5c398a9256b68f46a90093e0a1e54e89f94ee6a2ee7de557bd6d"
 default[:elasticsearch][:dir]        = "elasticsearch-#{elasticsearch[:version]}"
-default[:elasticsearch][:source]     = "https://github.com/downloads/elasticsearch/elasticsearch/#{elasticsearch[:dir]}.tar.gz"
+default[:elasticsearch][:source]     = "https://download.elasticsearch.org/elasticsearch/elasticsearch/#{elasticsearch[:dir]}.tar.gz"
 
 # The src will be downloaded here
 default[:elasticsearch][:basedir] = "/usr/local/src"
@@ -16,7 +16,7 @@ default[:elasticsearch][:configs] = "/etc/elasticsearch"
 default[:elasticsearch][:logs] = "/var/log/elasticsearch"
 #
 # Path to directory where to store index data allocated for this node.
-default[:elasticsearch][:data] = "/var/db/elasticsearch"
+default[:elasticsearch][:data] = "/var/lib/elasticsearch"
 #
 # Path to temporary files:
 default[:elasticsearch][:work] = "/tmp"

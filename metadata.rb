@@ -1,8 +1,8 @@
-maintainer        "Gerhard Lazu"
-maintainer_email  "gerhard@lazu.co.uk"
+maintainer        "Geoff Wagstaff"
+maintainer_email  "geoff@gosquared.com"
 license           "Apache 2.0"
-description       "Installs and configures elasticsearch 0.18.4"
-version           "0.18.4"
+description       "Installs and configures elasticsearch 0.90.5"
+version           "0.90.5"
 
 recipe "elasticsearch::source", "Installs elasticsearch from source"
 
