@@ -41,3 +41,7 @@ default[:elasticsearch][:timeout] = 300
 # ElasticSearch performs poorly when JVM starts swapping: you should ensure that
 # it _never_ swaps.
 default[:elasticsearch][:mlockall] = true
+
+# Cluster name identifies your cluster for auto-discovery. If you're running
+# multiple clusters on the same network, make sure you're using unique names.
+default[:elasticsearch][:cluster_name] = 'elasticsearch'
